@@ -24,6 +24,7 @@ class MyGreeterTest extends TestCase
     {
         $hour = date('G');
         $greeting_msg = $this->greeter->greeting();
+        $is_must_matched = false;
 
         //Set the timeframes with the specific hour conditions.
         $timeframes = [];
@@ -35,7 +36,12 @@ class MyGreeterTest extends TestCase
             if(preg_match('/'.$_frame.'$/i', $greeting_msg)){
                 $this->assertGreaterThanOrEqual($_condition['min'], $hour);
                 $this->assertLessThan($_condition['max'], $hour);
+
+                $is_must_matched = true;
+                break;
             }
         }
+
+        $this->asssertTrue(true, $is_must_matched, "Unknown greeting way");
     }
 }
