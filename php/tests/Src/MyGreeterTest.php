@@ -42,6 +42,6 @@ class MyGreeterTest extends TestCase
             }
         }
 
-        $this->assertTrue(true, $is_must_matched, "Unknown greeting way");
+        $this->assertTrue($is_must_matched, "Unknown greeting way");
     }
 }
